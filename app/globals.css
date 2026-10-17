@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Riwaq Al-Salaf identity — extracted from riwaqAlsalaflogo.jpg
+     deep maroon #2F0A11 + calligraphy gold #E2B573 */
+  --color-primary-50: #fdf5f6;
+  --color-primary-100: #fbe9eb;
+  --color-primary-200: #f6d3d8;
+  --color-primary-300: #eeadb6;
+  --color-primary-400: #df7d8b;
+  --color-primary-500: #cb5566;
+  --color-primary-600: #b13a4e;
+  --color-primary-700: #8a2436;
+  --color-primary-800: #62182a;
+  --color-primary-900: #43101b;
+  --color-primary-950: #2f0a11;
+
+  --color-gold-100: #fbf1e0;
+  --color-gold-200: #f6dfb8;
+  --color-gold-300: #eec993;
+  --color-gold-400: #e2b573;
+  --color-gold-500: #d2a055;
+  --color-gold-600: #8f5f26;
+  --color-gold-700: #7d5324;
+
+  --color-cream-50: #fdfaf7;
+  --color-cream-100: #faf5f0;
+  --color-cream-200: #f2e7dd;
+  --color-cream-300: #e4d2c4;
+
+  --color-ink-900: #1c1517;
+  --color-ink-700: #3f3336;
+  --color-ink-500: #6f6265;
+
+  --font-body: var(--font-cairo), "Segoe UI", Tahoma, sans-serif;
+  --font-display: var(--font-amiri), var(--font-cairo), serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-cream-100);
+  color: var(--color-ink-900);
+  font-family: var(--font-body);
+}
+
+/* ---------- Dark mode (genuine theme: dark chrome, light cards) ---------- */
+.dark {
+  color-scheme: dark;
+}
+.dark body {
+  background: #150709;
+  color: #f0e6e2;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Islamic geometric subtle pattern for hero */
+.pattern-islamic {
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d2a055' stroke-opacity='0.22' stroke-width='1'%3E%3Cpath d='M40 8l8 16 16 8-16 8-8 16-8-16-16-8 16-8z'/%3E%3Ccircle cx='40' cy='40' r='26'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.pattern-light {
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.10' stroke-width='1'%3E%3Cpath d='M40 8l8 16 16 8-16 8-8 16-8-16-16-8 16-8z'/%3E%3Ccircle cx='40' cy='40' r='26'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.animate-float-soft {
+  animation: float-soft 5s ease-in-out infinite;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-up {
+  animation: fade-up 0.6s ease both;
+}
+
+@media print {
+  .print-hidden {
+    display: none !important;
+  }
+  @page {
+    margin: 10mm;
+  }
+}
